@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DEPLOY_DIR = '/var/www/html'   // Nginx serves from here
-        REPO_URL   = 'https://github.com/YOUR_USERNAME/YOUR_REPO.git'
+        REPO_URL   = 'https://github.com/punita-vasani/testing.git'
     }
 
     stages {
