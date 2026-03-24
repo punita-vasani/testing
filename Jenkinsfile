@@ -7,15 +7,14 @@ pipeline {
     }
 
     triggers {
-        pollSCM('H/2 * * * *')   // every 2 minutes check for changes
+        pollSCM('H/2 * * * *')
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                git branch: 'main',
-                    url: "${REPO_URL}"
+                git branch: 'main', url: "${REPO_URL}"
             }
         }
 
@@ -30,6 +29,13 @@ pipeline {
             steps {
                 echo 'Running tests...'
                 sh 'echo Tests passed'
+            }
+        }
+
+        // ✅ BUTTON STEP
+        stage('Approval') {
+            steps {
+                input message: '🚀 Deploy karvu che? Click Proceed'
             }
         }
 
